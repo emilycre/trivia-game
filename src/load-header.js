@@ -25,9 +25,13 @@ export function makeProfile(user) {
 }
 
 const headerContainer = document.getElementById('header-container'); 
-export default function loadHeader(){
+export default function loadHeader(options){
     const dom = makeHeaderTemplate();
     headerContainer.appendChild(dom);
+    // const window = window.location;
+    if(options && options.skipAuth) {
+        return;
+    }
     auth.onAuthStateChanged(user => {
         if(!user) {
             window.location = './auth.html';
