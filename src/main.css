@@ -1,5 +1,6 @@
 body {
-
+    display: flex;
+    flex-direction: column;
 }
 
 header div {
@@ -23,4 +24,15 @@ header button{
 
 #user-name {
     margin-right: 5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#play-game {
+    display: flex;
+    justify-content: space-around;
 }
