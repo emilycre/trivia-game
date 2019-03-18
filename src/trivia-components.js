@@ -12,7 +12,22 @@ export function filterQuestions(fetchedQuestions) {
         return question.value;
     });
     const filterByAnswer = filterByValue.filter(question => {
-        return (!question.answer.includes('-') && !question.answer.includes('(') && !question.answer.includes('%') && !question.answer.includes('<'));
+        return (!question.answer.includes('-') && !question.answer.includes('(') && !question.answer.includes('%') && !question.answer.includes('<') && !question.answer.includes('&'));
     });
     return filterByAnswer;
+}
+
+export function removeCharacters(inputString) {
+    if(inputString.indexOf('A ') === 0) {
+        return inputString.replace('A ', '');
+    }
+    else if(inputString.indexOf('THE ') === 0) {
+        return inputString.replace('THE ', '');
+    }
+    else if(inputString.indexOf('AN ') === 0) {
+        return inputString.replace('AN ', '');
+    }
+    else {
+        return inputString;
+    }
 }

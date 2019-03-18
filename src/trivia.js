@@ -1,5 +1,6 @@
 import loadHeader from './load-header.js';
 import { getQuestionFromArray } from './trivia-components.js';
+import { filterQuestions, removeCharacters } from './trivia-components.js';
 const submitButton = document.getElementById('submit-button');
 const userInput = document.getElementById('user-input');
 const currentQuestionNumberDisplay = document.getElementById('current-question-number-display');
@@ -21,25 +22,22 @@ loadHeader();
 fetch(urlRandom)
     .then(response => response.json())
     .then(fetchedQuestions => {
-        console.log(fetchedQuestions)
         const randomQuestions = filterQuestions(fetchedQuestions);
         let question = populateQuestion(randomQuestions, currentQuestionNumber);
         submitButton.addEventListener('click', () => {
             let adjustedCorrectAnswer = question.answer.toUpperCase();
-            const adjustedAnswer = userInput.value.toUpperCase();
-            if(adjustedCorrectAnswer.includes('<I>')){
-                adjustedCorrectAnswer = adjustedCorrectAnswer.slice(3, -4);
-            }
+            adjustedCorrectAnswer = removeCharacters(adjustedCorrectAnswer);
+            let adjustedAnswer = userInput.value.toUpperCase();
+            adjustedAnswer = removeCharacters(adjustedAnswer);
             console.log(adjustedCorrectAnswer, adjustedAnswer);
             if(adjustedAnswer === ''){
                 //display fail message
+                console.log('fail1');
                 score -= question.score;
                 scoreTotal.textContent = score;
             }
-            else if(adjustedAnswer.includes('-') || adjustedAnswer.includes('AN ') || adjustedAnswer.includes('A ') || adjustedAnswer.includes('THE ')) {
-                console.log('testttt');
-            }
             else if(adjustedAnswer.length < 0.9 * adjustedCorrectAnswer.length) {
+                console.log('fail2');
                 score -= question.score;
                 scoreTotal.textContent = score;
             }
@@ -50,12 +48,17 @@ fetch(urlRandom)
             }
             else {
                 //display fail message
+                console.log('fail3');
                 score -= question.score;
                 scoreTotal.textContent = score;
             }
             userInput.value = '';
-            //if currentQuestionNumber >= randomQuestions.length
-            //redirect to results page
+                //if currentQuestionNumber >= randomQuestions.length
+                //redirect to results page
+            if(currentQuestionNumber >= 9) {
+                //put score in database
+                window.location = './results.html';
+            }
             currentQuestionNumber++;
             question = populateQuestion(randomQuestions, currentQuestionNumber);
         });
