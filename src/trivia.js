@@ -9,7 +9,7 @@ const categoryDisplay = document.getElementById('category');
 const answerDisplay = document.getElementById('answer-display');
 const scoreTotal = document.getElementById('score-total');
 
-const urlRandom = 'http://jservice.io/api/random?count=10';
+const urlRandom = 'http://jservice.io/api/random?count=25';
 
 let currentQuestionNumber = 0;
 currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
@@ -20,7 +20,9 @@ loadHeader();
 
 fetch(urlRandom)
     .then(response => response.json())
-    .then(randomQuestions => {
+    .then(fetchedQuestions => {
+        console.log(fetchedQuestions)
+        const randomQuestions = filterQuestions(fetchedQuestions);
         let question = populateQuestion(randomQuestions, currentQuestionNumber);
         submitButton.addEventListener('click', () => {
             let adjustedCorrectAnswer = question.answer.toUpperCase();
@@ -34,7 +36,10 @@ fetch(urlRandom)
                 score -= question.score;
                 scoreTotal.textContent = score;
             }
-            else if(adjustedAnswer.length < 0.7 * adjustedCorrectAnswer.length) {
+            else if(adjustedAnswer.includes('-') || adjustedAnswer.includes('AN ') || adjustedAnswer.includes('A ') || adjustedAnswer.includes('THE ')) {
+                console.log('testttt');
+            }
+            else if(adjustedAnswer.length < 0.9 * adjustedCorrectAnswer.length) {
                 score -= question.score;
                 scoreTotal.textContent = score;
             }
