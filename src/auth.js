@@ -5,7 +5,7 @@ const ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#auth-container', {
     signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebase.auth.Google.PROVIDER_ID
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
     ],    
     signInSuccessUrl: './index.html',
     callbacks: {
