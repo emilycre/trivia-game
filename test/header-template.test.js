@@ -2,20 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('header');
 
-import { makeHeaderTemplate } from '../src/load-header.js';
-
-function makeProfile(user) {
-    const template = document.createElement('template');
-    template.innerHTML = `
-        <div>
-            <img src="${user.photoURL}" id="user-image">
-            <span id="user-name">${user.displayName}</span>
-            <button id="sign-out">Sign Out</button>
-        </div>
-    `;
-
-    return template.content;
-}
+import { makeHeaderTemplate, makeProfile } from '../src/load-header.js';
 
 test('user profile template', function(assert) {
     const expected = `
