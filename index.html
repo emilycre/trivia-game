@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/main.css">
+    <link rel="stylesheet" type="text/css" href="./src/header.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Party Blob Trivia</title>
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
@@ -11,7 +12,17 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
 </head>
 <body>
-        <div id="header-container"></div>
+        <div id="header-container">
+            <header>
+                <img src="assets/party-blob.gif" alt="party blob" id="party-blob">
+                <h1>Trivia Game</h1>
+                <div>
+                    <img src="./assets/auth.jpeg" id="user-image">
+                    <span id="user-name">Banana Man</span>
+                    <button id="sign-out">Sign Out</button>
+                </div>
+            </header>
+        </div>
     <main></main>
     <footer></footer>
     <script type="module" src="./src/index.js"></script>

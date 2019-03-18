@@ -4,11 +4,11 @@
         add whatever goes in it
         'firebase.app(config)' -->
 
-2. Auth Page
+<!-- 2. Auth Page
     add firebase UI to FB website
     auth.html
         firebase script tags
         special CSS link
 
-    auth.js
-3.
+    auth.js -->
+3. 

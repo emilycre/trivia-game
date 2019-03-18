@@ -2,13 +2,25 @@ body {
 
 }
 
-header {
+header div {
     display: flex;
-    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
-header img {
-    width: 15vw;
-    align-self: center;
-    margin-right: 20px;
+header button{
+    
+}
+
+#party-blob {
+    width: 10vw;
+}
+
+#user-image {
+    width: 5vw;
+    border-radius: 100%;
+}
+
+#user-name {
+    margin-right: 5px;
 }

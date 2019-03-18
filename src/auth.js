@@ -1,6 +1,9 @@
 import { auth, userRef } from './firebase.js';
+import { loadHeader } from './load-header.js';
 
-const ui = new firebaseui.auth.AuthUI(firebase.auth());
+loadHeader();
+
+const ui = new firebaseui.auth.AuthUI(auth);
 
 ui.start('#auth-container', {
     signInOptions: [
@@ -21,3 +24,34 @@ ui.start('#auth-container', {
         }
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
