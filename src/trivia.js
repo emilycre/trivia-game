@@ -7,6 +7,7 @@ const questionDisplay = document.getElementById('question-display');
 const valueDisplay = document.getElementById('value');
 const categoryDisplay = document.getElementById('category');
 const answerDisplay = document.getElementById('answer-display');
+const scoreTotal = document.getElementById('score-total');
 
 const urlRandom = 'http://jservice.io/api/random?count=10';
 
@@ -20,19 +21,38 @@ loadHeader();
 fetch(urlRandom)
     .then(response => response.json())
     .then(randomQuestions => {
-        populateQuestion(randomQuestions, currentQuestionNumber);
+        let question = populateQuestion(randomQuestions, currentQuestionNumber);
         submitButton.addEventListener('click', () => {
-            const adjustedCorrectAnswer = answerDisplay.textContent.toUpperCase();
+            let adjustedCorrectAnswer = question.answer.toUpperCase();
             const adjustedAnswer = userInput.value.toUpperCase();
+            if(adjustedCorrectAnswer.includes('<I>')){
+                adjustedCorrectAnswer = adjustedCorrectAnswer.slice(3, -4);
+            }
             console.log(adjustedCorrectAnswer, adjustedAnswer);
-            if(adjustedCorrectAnswer.includes(adjustedAnswer)){
+            if(adjustedAnswer === ''){
+                //display fail message
+                score -= question.score;
+                scoreTotal.textContent = score;
+            }
+            else if(adjustedAnswer.length < 0.7 * adjustedCorrectAnswer.length) {
+                score -= question.score;
+                scoreTotal.textContent = score;
+            }
+            else if(adjustedCorrectAnswer.includes(adjustedAnswer)){
                 console.log('NICE');
+                score += question.score;
+                scoreTotal.textContent = score;
+            }
+            else {
+                //display fail message
+                score -= question.score;
+                scoreTotal.textContent = score;
             }
             userInput.value = '';
             //if currentQuestionNumber >= randomQuestions.length
             //redirect to results page
             currentQuestionNumber++;
-            populateQuestion(randomQuestions, currentQuestionNumber);
+            question = populateQuestion(randomQuestions, currentQuestionNumber);
         });
     });
 
@@ -44,4 +64,5 @@ function populateQuestion(randomQuestions, currentQuestionNumber) {
     valueDisplay.textContent = question.score;
     categoryDisplay.textContent = question.category;
     answerDisplay.textContent = question.answer;
+    return question;
 }
