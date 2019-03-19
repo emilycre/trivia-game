@@ -1,5 +1,4 @@
-import { auth, userRef } from './firebase.js';
-
+import { auth, userRef, scoresRef } from './firebase.js';
 export function makeHeaderTemplate() {
     const template = document.createElement('template');
     template.innerHTML = `
@@ -13,9 +12,10 @@ export function makeHeaderTemplate() {
 
 export function makeProfile(user, userHighScore) {
     const template = document.createElement('template');
+    const highScore = userHighScore || 0;
     template.innerHTML = /*html*/`
     <div>
-    <span id="high-score">HI-SCORE:${userHighScore}</span>
+    <span id="high-score">HI-SCORE:${highScore}</span>
     <img src="${user.photoURL || './assets/auth.jpeg'}" id="user-image">
     <span id="user-name">${user.displayName}</span>
     <button id="sign-out">Sign Out</button>
@@ -38,9 +38,10 @@ export default function loadHeader(options){
             window.location = './auth.html';
         }
         else {
-            const targetUser = userRef.child(user.uid);
-            targetUser.once('value').then(snapshot => {
+            const targetScore = scoresRef.child(user.uid);
+            targetScore.once('value').then(snapshot => {
                 const value = snapshot.val();
+
                 const userHighScore = value.highScore; 
             
                 const userDom = makeProfile(user, userHighScore);
