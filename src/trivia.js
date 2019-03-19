@@ -73,14 +73,16 @@ fetch(urlRandom)
                         if(!value){
                             scoresRef.child(user.uid)
                                 .set({
-                                    highScore: score
+                                    highScore: score,
+                                    name: user.displayName
                                 });
                             
                         }
                         else if(score > value.highScore) {
                             scoresRef.child(user.uid)
                                 .set({
-                                    highScore: score
+                                    highScore: score,
+                                    name: user.displayName
                                 });  
                         
 
