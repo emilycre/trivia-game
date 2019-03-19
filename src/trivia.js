@@ -54,16 +54,20 @@ fetch(urlRandom)
                 scoreTotal.textContent = score;
             }
             userInput.value = '';
-                //if currentQuestionNumber >= randomQuestions.length
-                //redirect to results page
-            if(currentQuestionNumber >= 9) {
-                //put score in database
+
+            if(currentQuestionNumber >= 1) {
                 auth.onAuthStateChanged(user => {
-                    userRef.child(user.uid)
-                        .update({
-                            highScore: score
-                        });
-   
+                    const targetUser = userRef.child(user.uid);
+                    targetUser.once('value').then(snapshot => {
+                        const value = snapshot.val();
+                        if(score > value.highScore) {
+                            userRef.child(user.uid)
+                                .update({
+                                    highScore: score
+                                });  
+                        }
+                    });
+                  
                     // window.location = './results.html';
                 });
                 
