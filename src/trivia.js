@@ -60,7 +60,7 @@ fetch(urlRandom)
                 //put score in database
                 auth.onAuthStateChanged(user => {
                     userRef.child(user.uid)
-                        .set({
+                        .update({
                             highScore: score
                         });
    
