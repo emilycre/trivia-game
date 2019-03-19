@@ -18,13 +18,14 @@ ui.start('#auth-container', {
     callbacks: {
         signInSuccessWithAuthResult(authResults) {
             const user = authResults.user;
+
             userRef.child(user.uid)     
                 .set({
                     uid: user.uid,
                     displayName: user.displayName,
                     photoURL: user.photoURL
-                    
                 });
+
             return true;
         }
     }

@@ -63,16 +63,42 @@ fetch(urlRandom)
             }
             userInput.value = '';
 
-            if(currentQuestionNumber >= 1) {
+            if(currentQuestionNumber >= 2) {
                 auth.onAuthStateChanged(user => {
-                    const targetUser = userRef.child(user.uid);
-                    targetUser.once('value').then(snapshot => {
+
+                    const targetScores = scoresRef.child(user.uid);
+                    targetScores.once('value').then(snapshot => {
                         const value = snapshot.val();
-                        if(score > value.highScore) {
-                            userRef.child(user.uid)
-                                .update({
+
+                        if(!value){
+                            scoresRef.child(user.uid)
+                                .set({
+                                    highScore: score
+                                });
+                            
+                        }
+                        else if(score > value.highScore) {
+                            scoresRef.child(user.uid)
+                                .set({
                                     highScore: score
                                 });  
+                        
+
+
+                        // if(!value.highScore){
+                        //     userRef.child(user.uid)
+                        //         .set({
+                        //             highScore: score
+                        //         });
+                        // }
+
+
+
+                            // scoresRef.child(user.uid)
+                            //     .update({
+                            //         name: user.displayName,
+                            //         highScore: user.highScore
+                            //     });
                         }
                     });
                   

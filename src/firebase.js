@@ -11,4 +11,4 @@ export const app = firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const db = firebase.database();
 export const userRef = db.ref('users');
-export const scoresRef = db.ref('scores');
+export const scoresRef = db.ref('highScores');
