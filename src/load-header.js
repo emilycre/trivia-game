@@ -1,4 +1,4 @@
-import { auth } from "./firebase.js";
+import { auth, userRef } from './firebase.js';
 
 export function makeHeaderTemplate() {
     const template = document.createElement('template');
@@ -11,10 +11,11 @@ export function makeHeaderTemplate() {
     return template.content;
 }
 
-export function makeProfile(user) {
+export function makeProfile(user, userHighScore) {
     const template = document.createElement('template');
-    template.innerHTML = `
+    template.innerHTML = /*html*/`
     <div>
+    <span id="high-score">HI-SCORE:${userHighScore}</span>
     <img src="${user.photoURL || './assets/auth.jpeg'}" id="user-image">
     <span id="user-name">${user.displayName}</span>
     <button id="sign-out">Sign Out</button>
@@ -37,15 +38,21 @@ export default function loadHeader(options){
             window.location = './auth.html';
         }
         else {
-            const userDom = makeProfile(user);
-            const signOut = userDom.querySelector('button');
-            signOut.addEventListener('click', () => {
-                auth.signOut();
-                window.location = './auth.html';
+            const targetUser = userRef.child(user.uid);
+            targetUser.once('value').then(snapshot => {
+                const value = snapshot.val();
+                const userHighScore = value.highScore; 
+            
+                const userDom = makeProfile(user, userHighScore);
+                const signOut = userDom.querySelector('button');
+                signOut.addEventListener('click', () => {
+                    auth.signOut();
+                    window.location = './auth.html';
+                });
+                const header = headerContainer.querySelector('header');
+                header.appendChild(userDom);
             });
 
-            const header = headerContainer.querySelector('header');
-            header.appendChild(userDom);
         }
     });
 

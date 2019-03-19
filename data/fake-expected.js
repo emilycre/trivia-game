@@ -114,25 +114,6 @@ const expected = [
         }
     },
     {
-        'id': 28426,
-        'answer': '"American Pie"',
-        'question': 'This No. 1 hit referred to the death of Buddy Holly as "The Day the Music Died"',
-        'value': 200,
-        'airdate': '1999-06-17T12:00:00.000Z',
-        'created_at': '2014-02-11T23:02:45.153Z',
-        'updated_at': '2014-02-11T23:02:45.153Z',
-        'category_id': 3193,
-        'game_id': null,
-        'invalid_count': null,
-        'category': {
-            'id': 3193,
-            'title': 'easy as "pie"',
-            'created_at': '2014-02-11T23:02:44.912Z',
-            'updated_at': '2014-02-11T23:02:44.912Z',
-            'clues_count': 5
-        }
-    },
-    {
         'id': 28427,
         'answer': 'A cloud',
         'question': '"I wandered lonely as" one of these, "that floats on high o\'er vales and hills"',

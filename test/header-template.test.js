@@ -7,18 +7,19 @@ import { makeHeaderTemplate, makeProfile } from '../src/load-header.js';
 test('user profile template', function(assert) {
     const expected = `
         <div>
+            <span id="high-score">HI-SCORE:900</span>
             <img src="./assets/auth.jpeg" id="user-image">
             <span id="user-name">Banana Man</span>
             <button id="sign-out">Sign Out</button>
         </div>
     `;
-
+    const userHighScore = 900;
     const user = {
         displayName: 'Banana Man',
         photoURL: './assets/auth.jpeg'
     };
 
-    const result = makeProfile(user);
+    const result = makeProfile(user, userHighScore);
 
     assert.htmlEqual(result, expected);
 });
