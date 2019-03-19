@@ -14,7 +14,12 @@ export function filterQuestions(fetchedQuestions) {
     const filterByAnswer = filterByValue.filter(question => {
         return (!question.answer.includes('-') && !question.answer.includes('(') && !question.answer.includes('%') && !question.answer.includes('<') && !question.answer.includes('&') && !question.answer.includes('/') && !question.answer.includes('"') && !question.answer.includes('\''));
     });
-    return filterByAnswer;
+
+
+    const filterByQuestion = filterByAnswer.filter(question => {
+        return (!question.question.includes('seen here') && !question.question.includes('shown here') && !question.question.includes('pictured here') && !question.question.includes('displayed above'));
+    });
+    return filterByQuestion;
 }
 
 export function removeCharacters(inputString) {
