@@ -1,6 +1,7 @@
 import loadHeader from './load-header.js';
 import { getQuestionFromArray } from './trivia-components.js';
 import { filterQuestions, removeCharacters } from './trivia-components.js';
+import { db, userRef, auth, scoresRef } from './firebase.js';
 const submitButton = document.getElementById('submit-button');
 const userInput = document.getElementById('user-input');
 const currentQuestionNumberDisplay = document.getElementById('current-question-number-display');
@@ -55,9 +56,17 @@ fetch(urlRandom)
             userInput.value = '';
                 //if currentQuestionNumber >= randomQuestions.length
                 //redirect to results page
-            if(currentQuestionNumber >= 9) {
+            if(currentQuestionNumber >= 2) {
                 //put score in database
-                window.location = './results.html';
+                auth.onAuthStateChanged(user => {
+                    userRef.child(user.uid)
+                        .set({
+                            highScore: score
+                        });
+   
+                    // window.location = './results.html';
+                });
+                
             }
             currentQuestionNumber++;
             question = populateQuestion(randomQuestions, currentQuestionNumber);
