@@ -10,13 +10,15 @@ const valueDisplay = document.getElementById('value');
 const categoryDisplay = document.getElementById('category');
 const answerDisplay = document.getElementById('answer-display');
 const scoreTotal = document.getElementById('score-total');
+const resultUserAnswer = document.getElementById('result-user-answer');
+const resultCondition = document.getElementById('result-condition');
+const resultExpectedAnswer = document.getElementById('result-expected-answer');
 
 const urlRandom = 'http://jservice.io/api/random?count=25';
 
 let currentQuestionNumber = 0;
 currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
 let score = 0;
-
 
 loadHeader();
 
@@ -30,25 +32,31 @@ fetch(urlRandom)
             adjustedCorrectAnswer = removeCharacters(adjustedCorrectAnswer);
             let adjustedAnswer = userInput.value.toUpperCase();
             adjustedAnswer = removeCharacters(adjustedAnswer);
+            resultExpectedAnswer.textContent = adjustedCorrectAnswer;
+            resultUserAnswer.textContent = adjustedAnswer;
             console.log(adjustedCorrectAnswer, adjustedAnswer);
             if(adjustedAnswer === ''){
                 //display fail message
+                resultCondition.textContent = 'INCORRECT';
                 console.log('fail1');
                 score -= question.score;
                 scoreTotal.textContent = score;
             }
             else if(adjustedAnswer.length < 0.9 * adjustedCorrectAnswer.length) {
+                resultCondition.textContent = 'INCORRECT';
                 console.log('fail2');
                 score -= question.score;
                 scoreTotal.textContent = score;
             }
             else if(adjustedCorrectAnswer.includes(adjustedAnswer)){
                 console.log('NICE');
+                resultCondition.textContent = 'CORRECT';
                 score += question.score;
                 scoreTotal.textContent = score;
             }
             else {
                 //display fail message
+                resultCondition.textContent = 'INCORRECT';
                 console.log('fail3');
                 score -= question.score;
                 scoreTotal.textContent = score;
