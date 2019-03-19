@@ -56,7 +56,7 @@ fetch(urlRandom)
             userInput.value = '';
                 //if currentQuestionNumber >= randomQuestions.length
                 //redirect to results page
-            if(currentQuestionNumber >= 2) {
+            if(currentQuestionNumber >= 9) {
                 //put score in database
                 auth.onAuthStateChanged(user => {
                     userRef.child(user.uid)
