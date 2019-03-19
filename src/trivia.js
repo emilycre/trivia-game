@@ -19,7 +19,7 @@ const urlRandom = 'http://jservice.io/api/random?count=25';
 let currentQuestionNumber = 0;
 currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
 let score = 0;
-
+let failureNumber = 0;
 loadHeader();
 
 fetch(urlRandom)
@@ -34,36 +34,32 @@ fetch(urlRandom)
             adjustedAnswer = removeCharacters(adjustedAnswer);
             resultExpectedAnswer.textContent = adjustedCorrectAnswer;
             resultUserAnswer.textContent = adjustedAnswer;
-            console.log(adjustedCorrectAnswer, adjustedAnswer);
             if(adjustedAnswer === ''){
-                //display fail message
-                resultCondition.textContent = 'INCORRECT';
-                console.log('fail1');
+                resultCondition.textContent = 'TRY ACTUALLY ANSWERING THE QUESTION...';
                 score -= question.score;
                 scoreTotal.textContent = score;
+                failureNumber++;
             }
             else if(adjustedAnswer.length < 0.9 * adjustedCorrectAnswer.length) {
                 resultCondition.textContent = 'INCORRECT';
-                console.log('fail2');
                 score -= question.score;
                 scoreTotal.textContent = score;
+                failureNumber++;
             }
             else if(adjustedCorrectAnswer.includes(adjustedAnswer)){
-                console.log('NICE');
                 resultCondition.textContent = 'CORRECT';
                 score += question.score;
                 scoreTotal.textContent = score;
             }
             else {
-                //display fail message
                 resultCondition.textContent = 'INCORRECT';
-                console.log('fail3');
                 score -= question.score;
                 scoreTotal.textContent = score;
+                failureNumber++;
             }
             userInput.value = '';
 
-            if(currentQuestionNumber >= 2) {
+            if(failureNumber >= 3) {
                 auth.onAuthStateChanged(user => {
 
                     const targetScores = scoresRef.child(user.uid);
@@ -84,27 +80,10 @@ fetch(urlRandom)
                                     highScore: score,
                                     name: user.displayName
                                 });  
-                        
-
-
-                        // if(!value.highScore){
-                        //     userRef.child(user.uid)
-                        //         .set({
-                        //             highScore: score
-                        //         });
-                        // }
-
-
-
-                            // scoresRef.child(user.uid)
-                            //     .update({
-                            //         name: user.displayName,
-                            //         highScore: user.highScore
-                            //     });
                         }
                     });
                   
-                    // window.location = './results.html';
+                    window.location = './results.html';
                 });
                 
             }
