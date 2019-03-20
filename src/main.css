@@ -25,3 +25,13 @@ body {
 #play-game {
     text-align: center;
 }
+
+.question-mark {
+    margin-top: 10px;
+    align-self: center;
+}
+
+#question-pic {
+    border-radius: 100%;
+    width: 30vw;
+}
