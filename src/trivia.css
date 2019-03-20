@@ -16,3 +16,8 @@ body {
 .hidden{
     visibility: hidden;
 }
+
+.visible {
+    opacity: 1;
+    animation: fade 4.5s;
+}

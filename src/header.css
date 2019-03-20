@@ -50,3 +50,17 @@ header h1 {
 #user-name {
     margin-right: 5px;
 }
+
+a {
+    text-decoration: none;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    background: #b592c2;
+}
+
+a:hover {
+    background: black;
+    color: white;
+}
