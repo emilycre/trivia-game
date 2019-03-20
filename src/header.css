@@ -1,14 +1,52 @@
+body{
+    margin:0
+}
+
 header {
     display: flex;
     flex-flow: row;
+    height: 100px;
+    background-color: #68caba;
+    padding: 5px;
+    width: 100vw;
+    border-bottom: 5px solid #fbf183;
 }
 
 header img {
     width: 15vw;
     align-self: center;
     margin-right: 20px;
+    margin-left: 5px;
 }
 
 header h1 {
     flex-grow: 1;
+    text-align: center;
+    align-self: center;
+    border-radius: 2px;
+    font-family: 'Saira', sans-serif;
+    font-size: 36px;
+}
+
+#party-blob {
+    width: 10vw;
+}
+
+#profile-box {
+    display: flex;
+}
+
+#user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#user-image {
+    width: 5vw;
+    border-radius: 100%;
+}
+
+#user-name {
+    margin-right: 5px;
 }

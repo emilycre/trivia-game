@@ -30,4 +30,3 @@ ui.start('#auth-container', {
         }
     }
 });
-

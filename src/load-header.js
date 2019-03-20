@@ -14,11 +14,16 @@ export function makeProfile(user, userHighScore) {
     const template = document.createElement('template');
     const highScore = userHighScore || 0;
     template.innerHTML = /*html*/`
-    <div>
-    <span id="high-score">HI-SCORE:${highScore}</span>
+    <div id="profile-box">
     <img src="${user.photoURL || './assets/auth.jpeg'}" id="user-image">
+    
+    <div id=user-info>
     <span id="user-name">${user.displayName}</span>
+    <div id="score-sign-out">
+    <span id="high-score">HI-SCORE:${highScore}</span>
+    </div>
     <button id="sign-out">Sign Out</button>
+    </div>
     </div>
     `;
     
