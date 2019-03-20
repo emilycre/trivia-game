@@ -10,11 +10,12 @@ const valueDisplay = document.getElementById('value');
 const categoryDisplay = document.getElementById('category');
 const answerDisplay = document.getElementById('answer-display');
 const scoreTotal = document.getElementById('score-total');
+const resultBox = document.getElementById('result-section');
 const resultUserAnswer = document.getElementById('result-user-answer');
 const resultCondition = document.getElementById('result-condition');
 const resultExpectedAnswer = document.getElementById('result-expected-answer');
 
-const urlRandom = 'http://jservice.io/api/random?count=25';
+const urlRandom = 'http://jservice.io/api/random?count=100';
 
 let currentQuestionNumber = 0;
 currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
@@ -28,6 +29,13 @@ fetch(urlRandom)
         const randomQuestions = filterQuestions(fetchedQuestions);
         let question = populateQuestion(randomQuestions, currentQuestionNumber);
         submitButton.addEventListener('click', () => {
+            //
+            resultBox.classList.remove('hidden');
+            // resultBox.classList.add('visible');
+            // window.setTimeout(3000);
+            // resultBox.classList.remove('visible');
+            // resultBox.classList.add('hidden');
+            //
             let adjustedCorrectAnswer = question.answer.toUpperCase();
             adjustedCorrectAnswer = removeCharacters(adjustedCorrectAnswer);
             let adjustedAnswer = userInput.value.toUpperCase();
@@ -36,13 +44,11 @@ fetch(urlRandom)
             resultUserAnswer.textContent = adjustedAnswer;
             if(adjustedAnswer === ''){
                 resultCondition.textContent = 'TRY ACTUALLY ANSWERING THE QUESTION...';
-                score -= question.score;
                 scoreTotal.textContent = score;
                 failureNumber++;
             }
             else if(adjustedAnswer.length < 0.9 * adjustedCorrectAnswer.length) {
                 resultCondition.textContent = 'INCORRECT';
-                score -= question.score;
                 scoreTotal.textContent = score;
                 failureNumber++;
             }
@@ -53,7 +59,6 @@ fetch(urlRandom)
             }
             else {
                 resultCondition.textContent = 'INCORRECT';
-                score -= question.score;
                 scoreTotal.textContent = score;
                 failureNumber++;
             }
@@ -83,7 +88,7 @@ fetch(urlRandom)
                         }
                     });
                   
-                    window.location = './results.html';
+                    // window.location = './results.html';
                 });
                 
             }
