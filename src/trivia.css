@@ -16,6 +16,7 @@ body {
     border-radius: 5px;
     padding: 10px;
     width: 70vh;
+    margin-top: 8vh;
 }
 
 #score-display {
@@ -24,11 +25,17 @@ body {
 
 #submit-button {
     margin-top: 20px;
+    margin-left: 10px;
 }
 
 input {
     width: 40%;
     font-size: 1.1em;
+}
+
+#result-section{
+    align-self: center;
+    text-align: center;
 }
 
 .hidden{
@@ -38,4 +45,12 @@ input {
 .visible {
     opacity: 1;
     animation: fade 4.5s;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
 }

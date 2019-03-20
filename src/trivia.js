@@ -32,6 +32,8 @@ fetch(urlRandom)
         
         submitButton.addEventListener('click', () => {
             resultBox.classList.remove('hidden');
+            resultBox.classList.remove('correct');
+            resultBox.classList.remove('incorrect');
             resultBox.classList.add('visible');
             const adjustedAnswer = adjustAnswer();
             const adjustedCorrectAnswer = adjustCorrectAnswer(question);
@@ -102,20 +104,24 @@ function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question){
         resultCondition.textContent = 'NOT AN ANSWER, TRY ACTUALLY ANSWERING THE QUESTION...';
         scoreTotal.textContent = score;
         failureNumber++;
+        resultBox.classList.add('incorrect');
     }
     else if(adjustedAnswer.length < 0.8 * adjustedCorrectAnswer.length) {
         resultCondition.textContent = 'INCORRECT';
         scoreTotal.textContent = score;
         failureNumber++;
+        resultBox.classList.add('incorrect');
     }
     else if(adjustedCorrectAnswer.includes(adjustedAnswer)){
         resultCondition.textContent = 'CORRECT';
         score += question.score;
         scoreTotal.textContent = score;
+        resultBox.classList.add('correct');
     }
     else {
         resultCondition.textContent = 'INCORRECT';
         scoreTotal.textContent = score;
         failureNumber++;
+        resultBox.classList.add('incorrect');
     }
 }
