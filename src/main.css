@@ -1,38 +1,27 @@
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-header div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header button{
-    
-}
-
-#party-blob {
-    width: 10vw;
-}
-
-#user-image {
-    width: 5vw;
-    border-radius: 100%;
-}
-
-#user-name {
-    margin-right: 5px;
-}
-
 main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    position: relative;
+    border: 4px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 70vh;
+    margin-top: 8vh;
+    font-family: 'Raleway', sans-serif;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../assets/90s-theme.jpg');
+    background-size: 225px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #play-game {
-    display: flex;
-    justify-content: space-around;
+    text-align: center;
 }

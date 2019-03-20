@@ -1,4 +1,6 @@
 body {
+    display: flex;
+    flex-direction: column;
     background-image: url('../assets/90s-theme.jpg');
     background-size: 225px; 
     display: flex;
@@ -63,11 +65,6 @@ input {
 .hidden{
     visibility: hidden;
 }
-
-/* .visible {
-    opacity: 1;
-    animation: fade 4.5s;
-} */
 
 .correct {
     color: green;
