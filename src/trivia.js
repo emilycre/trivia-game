@@ -103,7 +103,7 @@ function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question){
         scoreTotal.textContent = score;
         failureNumber++;
     }
-    else if(adjustedAnswer.length < 0.9 * adjustedCorrectAnswer.length) {
+    else if(adjustedAnswer.length < 0.8 * adjustedCorrectAnswer.length) {
         resultCondition.textContent = 'INCORRECT';
         scoreTotal.textContent = score;
         failureNumber++;

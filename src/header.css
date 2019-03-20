@@ -19,6 +19,16 @@ header img {
     margin-left: 5px;
 }
 
+#center-header{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#nav-container{
+    margin: 0;
+}
+
 header h1 {
     flex-grow: 1;
     text-align: center;
@@ -26,14 +36,17 @@ header h1 {
     border-radius: 2px;
     font-family: 'Saira', sans-serif;
     font-size: 36px;
+    margin-bottom: 0;
 }
 
 #party-blob {
     width: 10vw;
+    margin-left: 10px;
 }
 
 #profile-box {
     display: flex;
+    margin-right: 10px;
 }
 
 #user-info {
@@ -58,6 +71,7 @@ a {
     border-radius: 5px;
     color: black;
     background: #b592c2;
+    margin: 8px;
 }
 
 a:hover {

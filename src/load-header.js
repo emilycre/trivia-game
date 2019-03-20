@@ -4,7 +4,14 @@ export function makeHeaderTemplate() {
     template.innerHTML = `
         <header>
             <img src="assets/party-blob.gif" alt="party blob" id="party-blob">
-            <h1>Trivia Game</h1>
+            <div id="center-header">
+                <h1>Trivia Game</h1>
+                <div id="nav-container">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="trivia.html" class="nav-link">Play</a>
+                    <a href="scoreboard.html" class="nav-link">High Scores</a>
+                </div>
+            </div>
         </header>
     `;
     return template.content;

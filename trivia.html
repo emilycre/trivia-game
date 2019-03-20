@@ -18,26 +18,23 @@
            
         </div>
     <main>
-        <a href="./index.html">Return Home</a>
         <section id="trivia-game">
-        SCORE: <span id="score-total">0</span>
-        Question:<span id="current-question-number-display"></span>
-        <fieldset>
-            <legend>Question: </legend>
-            <p>For <span id="value"></span> points!</p>    
-                <p>Category: <span id="category"></span></p>
-                <span id="question-display"></span>
-                <br>
-                <input type="text" id="user-input" required>
-                <button id="submit-button">Submit Answer</button>
-                <span id="answer-display" class="hidden"></span>
-            
-        </fieldset>
-        <section id="result-section" class="hidden">
-            <p>"<span id="result-user-answer"></span>" IS <span id="result-condition"></span></p>
-            <p>EXPECTED ANSWER: <span id="result-expected-answer"></span></p>
+            <p id="score-display">SCORE: <span id="score-total">0</span></p>
+            <fieldset>
+                <legend>Question <span id="current-question-number-display"></span></legend>
+                <p>For <span id="value"></span> points!</p>    
+                    <p>Category: <span id="category"></span></p>
+                    <span id="question-display"></span>
+                    <br>
+                    <input type="text" id="user-input" required>
+                    <button id="submit-button">Submit Answer</button>
+                    <span id="answer-display" class="hidden"></span>
+            </fieldset>
+            <section id="result-section" class="hidden">
+                <p>"<span id="result-user-answer"></span>" IS <span id="result-condition"></span></p>
+                <p>EXPECTED ANSWER: <span id="result-expected-answer"></span></p>
+            </section>
         </section>
-    </section>
     </main>
     <footer></footer>
     <script type="module" src="./src/trivia.js"></script>
