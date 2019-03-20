@@ -34,7 +34,9 @@ fetch(urlRandom)
             resultBox.classList.remove('hidden');
             resultBox.classList.remove('correct');
             resultBox.classList.remove('incorrect');
-            resultBox.classList.add('visible');
+            // resultBox.classList.add('visible');
+            resultBox.classList.add('fade');
+
             const adjustedAnswer = adjustAnswer();
             const adjustedCorrectAnswer = adjustCorrectAnswer(question);
             evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question);
@@ -42,8 +44,8 @@ fetch(urlRandom)
             
             setTimeout(() => {
                 resultBox.classList.add('hidden');
-                resultBox.classList.remove('visible');
-            }, 4000);
+                resultBox.classList.remove('fade');
+            }, 10000);
             
             if(failureNumber >= 3) {
                 auth.onAuthStateChanged(user => {
@@ -71,8 +73,11 @@ fetch(urlRandom)
             }
             
             currentQuestionNumber++;
-            question = populateQuestion(randomQuestions, currentQuestionNumber);
-            console.log(question.answer);
+            setTimeout(() => {
+                question = populateQuestion(randomQuestions, currentQuestionNumber);
+                console.log(question.answer);
+
+            }, 10200);
         });
     });
     

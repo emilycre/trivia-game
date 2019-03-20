@@ -1,3 +1,5 @@
+import { userRef, auth } from './firebase.js';
+
 export function makeHighScoreRow(scoreEntry, entryRank) {
     const html = /*html*/ `
     <tr>
@@ -12,10 +14,26 @@ export function makeHighScoreRow(scoreEntry, entryRank) {
 } 
 
 export default function loadHighScores(scoreArray) {
-    for(let i = 0; i < 10; i++) {
-        const entryRank = i + 1;
-        const dom = makeHighScoreRow(scoreArray[i], entryRank);
-        const tableBody = document.getElementById('score-table-body');
-        tableBody.appendChild(dom);
+    let listLength = scoreArray.length;
+    if(scoreArray.length > 9) {
+        listLength = 10;
     }
+
+    auth.onAuthStateChanged(user=> {
+        if(!user){
+            window.location = 'auth.html';
+        }
+        else {
+            for(let i = 0; i < listLength; i++) {
+                const entryRank = i + 1;
+                const dom = makeHighScoreRow(scoreArray[i], entryRank);
+                const tr = dom.querySelector('tr');
+                const tableBody = document.getElementById('score-table-body');
+                if(scoreArray[i].name === user.displayName){
+                    tr.classList.add('user-score-targeted');
+                }
+                tableBody.appendChild(dom);
+            }
+        }
+    });
 }

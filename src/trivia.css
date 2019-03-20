@@ -36,16 +36,38 @@ input {
 #result-section{
     align-self: center;
     text-align: center;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+.fade {
+    -webkit-animation: fadeinout 10s normal;
+    animation: fadeinout 10s normal;
+}
+
+.question-fade {
+    -webkit-animation: fadeIn 10s normal;
+    animation: fadeIn 10s normal;
+}
+
+@-webkit-keyframes fadeinout {
+0%,100% { opacity: 0; }
+50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+0%,100% { opacity: 0; }
+50% { opacity: 1; }
 }
 
 .hidden{
     visibility: hidden;
 }
 
-.visible {
+/* .visible {
     opacity: 1;
     animation: fade 4.5s;
-}
+} */
 
 .correct {
     color: green;
