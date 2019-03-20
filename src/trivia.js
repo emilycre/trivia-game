@@ -29,13 +29,7 @@ fetch(urlRandom)
         const randomQuestions = filterQuestions(fetchedQuestions);
         let question = populateQuestion(randomQuestions, currentQuestionNumber);
         submitButton.addEventListener('click', () => {
-            //
             resultBox.classList.remove('hidden');
-            // resultBox.classList.add('visible');
-            // window.setTimeout(3000);
-            // resultBox.classList.remove('visible');
-            // resultBox.classList.add('hidden');
-            //
             let adjustedCorrectAnswer = question.answer.toUpperCase();
             adjustedCorrectAnswer = removeCharacters(adjustedCorrectAnswer);
             let adjustedAnswer = userInput.value.toUpperCase();
@@ -43,7 +37,7 @@ fetch(urlRandom)
             resultExpectedAnswer.textContent = adjustedCorrectAnswer;
             resultUserAnswer.textContent = adjustedAnswer;
             if(adjustedAnswer === ''){
-                resultCondition.textContent = 'TRY ACTUALLY ANSWERING THE QUESTION...';
+                resultCondition.textContent = 'NOT AN ANSWER, TRY ACTUALLY ANSWERING THE QUESTION...';
                 scoreTotal.textContent = score;
                 failureNumber++;
             }
@@ -63,6 +57,9 @@ fetch(urlRandom)
                 failureNumber++;
             }
             userInput.value = '';
+            setTimeout(() => {
+                resultBox.classList.add('hidden');
+            }, 4000);
 
             if(failureNumber >= 3) {
                 auth.onAuthStateChanged(user => {
@@ -92,6 +89,7 @@ fetch(urlRandom)
                 });
                 
             }
+            
             currentQuestionNumber++;
             question = populateQuestion(randomQuestions, currentQuestionNumber);
         });
