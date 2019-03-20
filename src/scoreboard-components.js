@@ -1,5 +1,8 @@
 import { userRef, auth } from './firebase.js';
 
+const userScore = document.getElementById('user-score');
+const userScoreDisplay = document.getElementById('user-score-display');
+
 export function makeHighScoreRow(scoreEntry, entryRank) {
     const html = /*html*/ `
     <tr>
@@ -20,20 +23,27 @@ export default function loadHighScores(scoreArray) {
     }
 
     auth.onAuthStateChanged(user=> {
-        if(!user){
-            window.location = 'auth.html';
-        }
-        else {
-            for(let i = 0; i < listLength; i++) {
-                const entryRank = i + 1;
-                const dom = makeHighScoreRow(scoreArray[i], entryRank);
-                const tr = dom.querySelector('tr');
-                const tableBody = document.getElementById('score-table-body');
-                if(scoreArray[i].name === user.displayName){
-                    tr.classList.add('user-score-targeted');
-                }
-                tableBody.appendChild(dom);
+        const currentUser = userRef.child(user.uid);
+        currentUser.once('value').then(snapshot => {
+            const value = snapshot.val();        
+
+            if(value.lastScore){
+                userScore.textContent = value.lastScore;
             }
+            else {
+                userScoreDisplay.hidden = true;
+            }
+        });
+
+        for(let i = 0; i < listLength; i++) {
+            const entryRank = i + 1;
+            const dom = makeHighScoreRow(scoreArray[i], entryRank);
+            const tr = dom.querySelector('tr');
+            const tableBody = document.getElementById('score-table-body');
+            if(scoreArray[i].name === user.displayName){
+                tr.classList.add('user-score-targeted');
+            }
+            tableBody.appendChild(dom);
         }
     });
 }

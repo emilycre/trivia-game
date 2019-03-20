@@ -23,7 +23,8 @@ ui.start('#auth-container', {
                 .set({
                     uid: user.uid,
                     displayName: user.displayName,
-                    photoURL: user.photoURL
+                    photoURL: user.photoURL,
+                    lastScore: 0
                 });
 
             return true;

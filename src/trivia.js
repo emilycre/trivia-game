@@ -49,6 +49,10 @@ fetch(urlRandom)
             
             if(failureNumber >= 3) {
                 auth.onAuthStateChanged(user => {
+                    userRef.child(user.uid)
+                        .update({
+                            lastScore: score
+                        });
                     const targetScores = scoresRef.child(user.uid);
                     targetScores.once('value').then(snapshot => {
                         const value = snapshot.val();
