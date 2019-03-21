@@ -36,4 +36,3 @@ export function removeCharacters(inputString) {
         return inputString;
     }
 }
-
