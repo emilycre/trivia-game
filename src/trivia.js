@@ -1,7 +1,9 @@
 import loadHeader from './load-header.js';
 import { getQuestionFromArray } from './trivia-components.js';
 import { filterQuestions, removeCharacters } from './trivia-components.js';
-import { db, userRef, auth, scoresRef } from './firebase.js';
+import { userRef, auth, scoresRef } from './firebase.js';
+import { filterByEasy, filterByMedium, filterByHard } from './filter-by-difficulty.js';
+
 const submitButton = document.getElementById('submit-button');
 const userInput = document.getElementById('user-input');
 const currentQuestionNumberDisplay = document.getElementById('current-question-number-display');
@@ -23,6 +25,9 @@ let score = 0;
 let failureNumber = 0;
 loadHeader();
 
+const hash = window.location.hash.slice(1);
+console.log(hash);
+
 fetch(urlRandom, {
     headers: {
         origin: null
@@ -30,7 +35,19 @@ fetch(urlRandom, {
 })
     .then(response => response.json())
     .then(fetchedQuestions => {
-        const randomQuestions = filterQuestions(fetchedQuestions);
+        let randomQuestions = filterQuestions(fetchedQuestions);
+        console.log(randomQuestions);
+        if(hash === 'easy') {
+            randomQuestions = filterByEasy(randomQuestions);
+        } else if(hash === 'medium') {
+            randomQuestions = filterByMedium(randomQuestions);
+        } else if(hash === 'hard') {
+            randomQuestions = filterByHard(randomQuestions);
+        }
+        console.log(randomQuestions.length);
+        if(randomQuestions.length < 25) {
+            window.location.reload();
+        }
         let question = populateQuestion(randomQuestions, currentQuestionNumber);
         console.log(question.answer);
         
@@ -84,6 +101,7 @@ fetch(urlRandom, {
             setTimeout(() => {
                 if(failureNumber < 3) {
                     question = populateQuestion(randomQuestions, currentQuestionNumber);
+                    console.log(hash);
                     console.log(question.answer);
                     submitButton.disabled = false;
                 } else {

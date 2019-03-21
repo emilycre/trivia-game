@@ -32,16 +32,24 @@ test('user profile template', function(assert) {
 test('make header template', function(assert) {
     const expected = `
     <header>
-    <img src="assets/party-blob.gif" alt="party blob" id="party-blob">
-    <div id="center-header">
-        <h1>Just Guess</h1>
-        <div id="nav-container">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="trivia.html" class="nav-link">Play</a>
-            <a href="scoreboard.html" class="nav-link">High Scores</a>
-        </div>
-    </div>
-    </header>
+            <img src="assets/party-blob.gif" alt="party blob" id="party-blob">
+            <div id="center-header">
+                <h1>Just Guess</h1>
+                <div id="nav-container">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <div id="play-button">
+                        <a href="trivia.html" class="nav-link" id="trivia-button">Play</a>
+                        <ul class="drop-down-content">
+                            <li><a href="trivia.html#random">Play</a></li>
+                            <li><a href="trivia.html#easy">Play Easy</a></li>
+                            <li><a href="trivia.html#medium">Play Medium</a></li>
+                            <li><a href="trivia.html#hard">Play Hard</a></li>
+                        </ul>
+                    </div>
+                    <a href="scoreboard.html" class="nav-link">High Scores</a>
+                </div>
+            </div>
+        </header>
     `;
     const result = makeHeaderTemplate();
 

@@ -11,13 +11,12 @@ export function makeHeaderTemplate() {
                     <div id="play-button">
                         <a href="trivia.html" class="nav-link" id="trivia-button">Play</a>
                         <ul class="drop-down-content">
-                        <li><a href="trivia.html#random">Play</a>
-                        <li><a href="trivia.html#easy">Play Easy</a>
-                        <li><a href="trivia.html#medium">Play Medium</a>
-                        <li><a href="trivia.html#hard">Play Hard</a>
+                        <li><a href="trivia.html#random">Play</a></li>
+                        <li><a href="trivia.html#easy">Play Easy</a></li>
+                        <li><a href="trivia.html#medium">Play Medium</a></li>
+                        <li><a href="trivia.html#hard">Play Hard</a></li>
                         </ul>
                     </div>
-                    <div>
                     <a href="scoreboard.html" class="nav-link">High Scores</a>
                 </div>
             </div>
