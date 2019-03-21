@@ -24,10 +24,11 @@ currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
 let score = 0;
 let failureNumber = 0;
 loadHeader();
+window.addEventListener('hashchange', () => { window.location.reload(); });
 
 const hash = window.location.hash.slice(1);
 console.log(hash);
-
+    
 fetch(urlRandom, {
     headers: {
         origin: null
@@ -36,7 +37,6 @@ fetch(urlRandom, {
     .then(response => response.json())
     .then(fetchedQuestions => {
         let randomQuestions = filterQuestions(fetchedQuestions);
-        console.log(randomQuestions);
         if(hash === 'easy') {
             randomQuestions = filterByEasy(randomQuestions);
         } else if(hash === 'medium') {
@@ -44,7 +44,6 @@ fetch(urlRandom, {
         } else if(hash === 'hard') {
             randomQuestions = filterByHard(randomQuestions);
         }
-        console.log(randomQuestions.length);
         if(randomQuestions.length < 25) {
             window.location.reload();
         }
@@ -57,7 +56,7 @@ fetch(urlRandom, {
             resultBox.classList.remove('correct');
             resultBox.classList.remove('incorrect');
             resultBox.classList.add('fade');
-
+            
             const adjustedAnswer = adjustAnswer();
             const adjustedCorrectAnswer = adjustCorrectAnswer(question);
             evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question);
@@ -101,13 +100,15 @@ fetch(urlRandom, {
                 if(failureNumber < 3 && currentQuestionNumber < 25) {
                     question = populateQuestion(randomQuestions, currentQuestionNumber);
                     submitButton.disabled = false;
+                    console.log(question.answer);
                 } else {
                     window.location = './scoreboard.html';
                 }
             }, 5200);
-
+            
         });
     });
+
     
 function populateQuestion(randomQuestions, currentQuestionNumber) {
     currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
@@ -118,7 +119,7 @@ function populateQuestion(randomQuestions, currentQuestionNumber) {
     answerDisplay.textContent = question.answer;
     return question;
 }
-
+    
 function adjustCorrectAnswer(question) {
     let adjustedCorrectAnswer = question.answer.toUpperCase();
     adjustedCorrectAnswer = removeCharacters(adjustedCorrectAnswer);

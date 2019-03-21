@@ -1,6 +1,6 @@
 export function filterByEasy(allQuestions) {
     return allQuestions.filter(question => {
-        if(question.value < 400 && question.value) {
+        if(question.value < 500 && question.value) {
             return question;
         }
     });
@@ -16,7 +16,7 @@ export function filterByMedium(allQuestions) {
 
 export function filterByHard(allQuestions) {
     return allQuestions.filter(question => {
-        if(question.value > 700) {
+        if(question.value > 600) {
             return question;
         }
     });
