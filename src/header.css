@@ -31,12 +31,14 @@ header img {
 }
 
 header h1 {
+    position: relative;
     flex-grow: 1;
     text-align: center;
     align-self: center;
     border-radius: 2px;
     font-size: 36px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    bottom: 13px;
 }
 
 header div {
@@ -86,6 +88,7 @@ header div {
 }
 
 header a {
+    position: relative;
     text-decoration: none;
     padding: 3px;
     border: 1px solid black;
@@ -93,9 +96,9 @@ header a {
     color: black;
     background: #b592c2;
     margin: 8px;
-    width: 10vw;
     white-space: nowrap;
     overflow: hidden;
+    bottom: 10px;
 }
 
 header a:hover {

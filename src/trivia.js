@@ -15,7 +15,7 @@ const resultUserAnswer = document.getElementById('result-user-answer');
 const resultCondition = document.getElementById('result-condition');
 const resultExpectedAnswer = document.getElementById('result-expected-answer');
 
-const urlRandom = 'http://jservice.io/api/random?count=100';
+const urlRandom = 'https://cors-anywhere.herokuapp.com/http://jservice.io/api/random?count=100';
 
 let currentQuestionNumber = 0;
 currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
@@ -23,7 +23,11 @@ let score = 0;
 let failureNumber = 0;
 loadHeader();
 
-fetch(urlRandom)
+fetch(urlRandom, {
+    headers: {
+        origin: null
+    }
+})
     .then(response => response.json())
     .then(fetchedQuestions => {
         const randomQuestions = filterQuestions(fetchedQuestions);
