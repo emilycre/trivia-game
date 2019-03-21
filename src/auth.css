@@ -22,17 +22,21 @@ body {
     align-items: center;
 }
 
-#play-game {
-    text-align: center;
+#auth-welcome {
+    font-size: 3em;
+    font-family: 'Raleway', sans-serif;
+    margin: 15px;
 }
 
-.question-mark {
-    margin-top: 10px;
-    align-self: center;
+header {
+    background: white;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border: black solid; 
+    border-radius: 10px;
 }
 
-#question-pic {
-    border-radius: 100%;
-    width: 23vw;
+#party-blob-container{
+    width: 110vw;
+    overflow: visible;
 }
-

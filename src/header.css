@@ -36,7 +36,7 @@ header h1 {
     align-self: center;
     border-radius: 2px;
     font-size: 36px;
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
 header div {
@@ -53,6 +53,7 @@ header div {
 #user-image {
     width: 5vw;
     border-radius: 100%;
+    border: 3px solid white;
 }
 
 #user-name {

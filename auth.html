@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sign In</title>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
-    <link rel="stylesheet" href="./src/header.css">
-    <link rel="stylesheet" href="./src/main.css">
+    <link rel="stylesheet" href="./src/auth.css">
 </head>
 <body>
+    <header id="auth-header">
+    <h1 id="auth-welcome">WELCOME TO TRIVIA GAME</h1>
+    </header>
     <main>
         <div id="header-container"></div>
         <span id="auth-container"></span>
     <script type="module" src="src/auth.js"></script>
-    </main>
+</main>
+        <div id="party-blob-containers">
+            <img src="./assets/party-blob.gif" alt="">
+            <img src="./assets/party-blob.gif" alt="">
+            <img src="./assets/party-blob.gif" alt="">
+            <img src="./assets/party-blob.gif" alt="">
+            <img src="./assets/party-blob.gif" alt="">
+            <img src="./assets/party-blob.gif" alt="">
+            <img src="./assets/party-blob.gif" alt="">
+            <img src="./assets/party-blob.gif" alt="">
+        </div>
 </body>
 </html>
