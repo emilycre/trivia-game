@@ -53,11 +53,12 @@ export default function loadHeader(options){
             const targetScore = scoresRef.child(user.uid);
             targetScore.once('value').then(snapshot => {
                 const value = snapshot.val();
-                
                 let userHighScore = 0;
+
                 if(value) {
                     userHighScore = value.highScore;
                 }
+                
                 const userDom = makeProfile(user, userHighScore);
                 const signOut = userDom.querySelector('button');
                 signOut.addEventListener('click', () => {
