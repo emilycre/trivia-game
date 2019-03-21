@@ -24,6 +24,7 @@ body {
 
 #play-game {
     text-align: center;
+    margin: 10px;
 }
 
 .question-mark {
@@ -34,5 +35,6 @@ body {
 #question-pic {
     border-radius: 100%;
     width: 23vw;
+    margin: 10px;
 }
 

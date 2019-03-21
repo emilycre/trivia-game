@@ -3,6 +3,7 @@ import { getQuestionFromArray } from './trivia-components.js';
 import { filterQuestions, removeCharacters } from './trivia-components.js';
 import { userRef, auth, scoresRef } from './firebase.js';
 import { filterByEasy, filterByMedium, filterByHard } from './filter-by-difficulty.js';
+import { insults, unimpressedWins } from '../data/result-insults.js';
 
 const submitButton = document.getElementById('submit-button');
 const userInput = document.getElementById('user-input');
@@ -59,13 +60,13 @@ fetch(urlRandom, {
             
             const adjustedAnswer = adjustAnswer();
             const adjustedCorrectAnswer = adjustCorrectAnswer(question);
-            evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question);
+            evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question,insults, unimpressedWins);
             userInput.value = '';
             
             setTimeout(() => {
                 resultBox.classList.add('hidden');
                 resultBox.classList.remove('fade');
-            }, 4900);
+            }, 6900);
             
             if(failureNumber >= 3 || currentQuestionNumber > 24) {
                 auth.onAuthStateChanged(user => {
@@ -104,7 +105,7 @@ fetch(urlRandom, {
                 } else {
                     window.location = './scoreboard.html';
                 }
-            }, 5200);
+            }, 7200);
             
         });
     });
@@ -133,27 +134,31 @@ function adjustAnswer() {
     return adjustedAnswer;
 }
 
-function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question){
+function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question, insults, unimpressedWins){
+    let random = Math.random();
+    console.log(random);
+
     if(adjustedAnswer === ''){
-        resultCondition.textContent = 'not even an answer! What a loser!';
+        resultUserAnswer.textContent = 'NOTHING???';
+        resultCondition.textContent = 'Wow. You didn\'t even try.';
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
     }
     else if(adjustedAnswer.length < 0.8 * adjustedCorrectAnswer.length) {
-        resultCondition.textContent = 'massively embarrasing!';
+        resultCondition.textContent = ' Nope.' + insults[Math.floor(random * insults.length)];
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
     }
     else if(adjustedCorrectAnswer.includes(adjustedAnswer)){
-        resultCondition.textContent = 'correct!';
+        resultCondition.textContent = ' Correct.' + unimpressedWins[Math.floor(random * unimpressedWins.length)];
         score += question.score;
         scoreTotal.textContent = score;
         resultBox.classList.add('correct');
     }
     else {
-        resultCondition.textContent = 'incorrect! This reflects so deeply on your intelligence.';
+        resultCondition.textContent = ' Sorry.' + insults[Math.floor(random * insults.length)];
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');

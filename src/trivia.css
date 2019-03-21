@@ -20,10 +20,11 @@ body {
     width: 60vw;
     margin-top: 8vh;
     font-family: 'Raleway', sans-serif;
+    text-align: center;
 }
 
 legend {
-    border: solid #b98fc8 1px;
+    border: solid #b98fc8 2px;
     border-radius: 5px;
     padding: 5px;
 }
@@ -31,11 +32,13 @@ legend {
 fieldset {
     border: solid #b98fc8 2px;
     border-radius: 5px;
-    padding: 10px;  
+    padding: 10px;
+    margin: 10px; 
 }
 
 #score-display {
     align-self: center;
+    font-size: 1.4em;
 }
 
 #submit-button {
@@ -45,23 +48,39 @@ fieldset {
 
 input {
     width: 40%;
-    font-size: 1.1em;
+    font-size: 1.0em;
 }
 
 #result-section{
     align-self: center;
     text-align: center;
     background-color: white;
-}
-.fade {
-    -webkit-animation: fadeinout 5s normal;
-    animation: fadeinout 5s normal;
+    font-size: 1.5em;
 }
 
-/* .question-fade {
-    -webkit-animation: fadeIn 5s normal;
-    animation: fadeIn 5s normal;
-} */
+#question-display {
+    font-size: 1.25em;
+}
+
+#value {
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+
+#category {
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+#category-p {
+    font-size: 1.1em;
+    text-decoration: underline;
+    padding-bottom: 15px;
+}
+.fade {
+    -webkit-animation: fadeinout 8s normal;
+    animation: fadeinout 8s normal;
+}
 
 @-webkit-keyframes fadeinout {
 0%,100% { opacity: 0; }
@@ -85,3 +104,17 @@ input {
     color: red;
 }
 
+p {
+    padding: 10px;
+}
+
+#submit-butt{
+    display: flex;
+    align-content: center;
+    flex-flow: column wrap;
+    margin-top: 15px;
+}
+
+#submit-button {
+    align-self: center;
+}

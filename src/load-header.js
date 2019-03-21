@@ -1,4 +1,4 @@
-import { auth, userRef, scoresRef } from './firebase.js';
+import { auth, scoresRef } from './firebase.js';
 export function makeHeaderTemplate() {
     const template = document.createElement('template');
     template.innerHTML = `

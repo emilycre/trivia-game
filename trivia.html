@@ -22,15 +22,17 @@
             <fieldset>
                 <legend>Question <span id="current-question-number-display"></span></legend>
                 <p>For <span id="value"></span> points!</p>    
-                    <p>Category: <span id="category"></span></p>
+                    <p id="category-p">Category: <span id="category"></span></p>
                     <span id="question-display"></span>
                     <br>
+                    <div id="submit-butt">
                     <input type="text" id="user-input" required>
                     <button id="submit-button">Submit Answer</button>
+                    </div>
                     <span id="answer-display" class="hidden"></span>
             </fieldset>
             <section id="result-section" class="hidden">
-                <p>"<span id="result-user-answer"></span>" is <span id="result-condition"></span></p>
+                <p><span id="result-user-answer"></span> is your answer. <span id="result-condition"></span></p>
                 <p>Expected Answer: <span id="result-expected-answer"></span></p>
             </section>
         </section>
