@@ -19,7 +19,7 @@ export function makeHeaderTemplate() {
 
 export function makeProfile(user, userHighScore) {
     const template = document.createElement('template');
-    const highScore = userHighScore || 0;
+    const highScore = userHighScore;
     template.innerHTML = /*html*/`
     <div id="profile-box">
     <img src="${user.photoURL || './assets/auth.jpeg'}" id="user-image">
@@ -53,9 +53,11 @@ export default function loadHeader(options){
             const targetScore = scoresRef.child(user.uid);
             targetScore.once('value').then(snapshot => {
                 const value = snapshot.val();
-
-                const userHighScore = value.highScore; 
-            
+                
+                let userHighScore = 0;
+                if(value) {
+                    userHighScore = value.highScore;
+                }
                 const userDom = makeProfile(user, userHighScore);
                 const signOut = userDom.querySelector('button');
                 signOut.addEventListener('click', () => {
