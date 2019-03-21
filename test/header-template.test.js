@@ -12,7 +12,7 @@ test('user profile template', function(assert) {
     <div id="user-info">
     <span id="user-name">Banana Man</span>
     <div id="score-sign-out">
-    <span id="high-score">HI-SCORE:2000</span>
+    <span id="high-score">High-Score: 2000</span>
     </div>
     <button id="sign-out">Sign Out</button>
     </div>
@@ -34,7 +34,7 @@ test('make header template', function(assert) {
     <header>
     <img src="assets/party-blob.gif" alt="party blob" id="party-blob">
     <div id="center-header">
-        <h1>Trivia Game</h1>
+        <h1>Just Guess</h1>
         <div id="nav-container">
             <a href="index.html" class="nav-link">Home</a>
             <a href="trivia.html" class="nav-link">Play</a>

@@ -1,80 +1,4 @@
-const fetchedQuestions = [
-    {
-        "id": 28411,
-        "answer": "Richard- Thomas",
-        "question": "(2 of 3) How tall are you?",
-        "value": 500,
-        "airdate": "1999-06-18T12:00:00.000Z",
-        "created_at": "2014-02-11T23:02:44.422Z",
-        "updated_at": "2014-02-11T23:02:44.422Z",
-        "category_id": 749,
-        "game_id": null,
-        "invalid_count": null,
-        "category": {
-            "id": 749,
-            "title": "actors & actresses",
-            "created_at": "2014-02-11T22:50:06.107Z",
-            "updated_at": "2014-02-11T22:50:06.107Z",
-            "clues_count": 60
-        }
-    },
-    {
-        "id": 28412,
-        "answer": "Mush-room",
-        "question": "The morel is Minnesota's state one of these",
-        "value": null,
-        "airdate": "1999-06-18T12:00:00.000Z",
-        "created_at": "2014-02-11T23:02:44.439Z",
-        "updated_at": "2014-02-11T23:02:44.439Z",
-        "category_id": 3186,
-        "game_id": null,
-        "invalid_count": null,
-        "category": {
-            "id": 3186,
-            "title": "state objects",
-            "created_at": "2014-02-11T23:02:43.922Z",
-            "updated_at": "2014-02-11T23:02:43.922Z",
-            "clues_count": 5
-        }
-    },
-    {
-        "id": 28413,
-        "answer": "Montreal Canadiens",
-        "question": "Molson Centre",
-        "value": null,
-        "airdate": "1999-06-18T12:00:00.000Z",
-        "created_at": "2014-02-11T23:02:44.456Z",
-        "updated_at": "2014-02-11T23:02:44.456Z",
-        "category_id": 3187,
-        "game_id": null,
-        "invalid_count": null,
-        "category": {
-            "id": 3187,
-            "title": "pro stadiums & arenas",
-            "created_at": "2014-02-11T23:02:43.934Z",
-            "updated_at": "2014-02-11T23:02:43.934Z",
-            "clues_count": 5
-        }
-    },
-    {
-        "id": 28414,
-        "answer": "<i> blah",
-        "question": "Unit equal to 33,000 foot-pounds per minute",
-        "value": 500,
-        "airdate": "1999-06-18T12:00:00.000Z",
-        "created_at": "2014-02-11T23:02:44.474Z",
-        "updated_at": "2014-02-11T23:02:44.474Z",
-        "category_id": 3188,
-        "game_id": null,
-        "invalid_count": null,
-        "category": {
-            "id": 3188,
-            "title": "\"horse\" sense",
-            "created_at": "2014-02-11T23:02:43.946Z",
-            "updated_at": "2014-02-11T23:02:43.946Z",
-            "clues_count": 5
-        }
-    },
+export const easyQuestions = [
     {
         "id": 28415,
         "answer": "</I> daw",
@@ -417,6 +341,47 @@ const fetchedQuestions = [
             "clues_count": 5
         }
     },
+];
+
+export const mediumQuestions = [
+    {
+        "id": 28411,
+        "answer": "Richard- Thomas",
+        "question": "(2 of 3) How tall are you?",
+        "value": 500,
+        "airdate": "1999-06-18T12:00:00.000Z",
+        "created_at": "2014-02-11T23:02:44.422Z",
+        "updated_at": "2014-02-11T23:02:44.422Z",
+        "category_id": 749,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 749,
+            "title": "actors & actresses",
+            "created_at": "2014-02-11T22:50:06.107Z",
+            "updated_at": "2014-02-11T22:50:06.107Z",
+            "clues_count": 60
+        }
+    },
+    {
+        "id": 28414,
+        "answer": "<i> blah",
+        "question": "Unit equal to 33,000 foot-pounds per minute",
+        "value": 500,
+        "airdate": "1999-06-18T12:00:00.000Z",
+        "created_at": "2014-02-11T23:02:44.474Z",
+        "updated_at": "2014-02-11T23:02:44.474Z",
+        "category_id": 3188,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 3188,
+            "title": "\"horse\" sense",
+            "created_at": "2014-02-11T23:02:43.946Z",
+            "updated_at": "2014-02-11T23:02:43.946Z",
+            "clues_count": 5
+        }
+    },
     {
         "id": 28433,
         "answer": "Oxford",
@@ -454,50 +419,10 @@ const fetchedQuestions = [
             "updated_at": "2014-02-11T22:48:02.669Z",
             "clues_count": 190
         }
-    },
-    {
-        "id": 28435,
-        "answer": "Joshua",
-        "question": "At the start of this man's book, God tells him, \"Moses my servant is dead: now therefore arise...\"",
-        "value": null,
-        "airdate": "1999-06-17T12:00:00.000Z",
-        "created_at": "2014-02-11T23:02:45.352Z",
-        "updated_at": "2014-02-11T23:02:45.352Z",
-        "category_id": 3190,
-        "game_id": null,
-        "invalid_count": null,
-        "category": {
-            "id": 3190,
-            "title": "the voice of god",
-            "created_at": "2014-02-11T23:02:44.875Z",
-            "updated_at": "2014-02-11T23:02:44.875Z",
-            "clues_count": 5
-        }
     }
 ];
 
-export default fetchedQuestions;
-
-export const hardFetchedQuestions = [
-    {
-        "id": 28411,
-        "answer": "Richard- Thomas",
-        "question": "(2 of 3) How tall are you?",
-        "value": 500,
-        "airdate": "1999-06-18T12:00:00.000Z",
-        "created_at": "2014-02-11T23:02:44.422Z",
-        "updated_at": "2014-02-11T23:02:44.422Z",
-        "category_id": 749,
-        "game_id": null,
-        "invalid_count": null,
-        "category": {
-            "id": 749,
-            "title": "actors & actresses",
-            "created_at": "2014-02-11T22:50:06.107Z",
-            "updated_at": "2014-02-11T22:50:06.107Z",
-            "clues_count": 60
-        }
-    },
+export const hardQuestions = [
     {
         "id": 28414,
         "answer": "<i> blah",
@@ -534,25 +459,6 @@ export const hardFetchedQuestions = [
             "created_at": "2014-02-11T23:02:44.858Z",
             "updated_at": "2014-02-11T23:02:44.858Z",
             "clues_count": 5
-        }
-    },
-    {
-        "id": 28434,
-        "answer": "Mushrooms",
-        "question": "You can add a delightfully woodsy flavor to your entrees with porcini, a type of these",
-        "value": 400,
-        "airdate": "1999-06-17T12:00:00.000Z",
-        "created_at": "2014-02-11T23:02:45.335Z",
-        "updated_at": "2014-02-11T23:02:45.335Z",
-        "category_id": 253,
-        "game_id": null,
-        "invalid_count": null,
-        "category": {
-            "id": 253,
-            "title": "food & drink",
-            "created_at": "2014-02-11T22:48:02.669Z",
-            "updated_at": "2014-02-11T22:48:02.669Z",
-            "clues_count": 190
         }
     }
 ];
