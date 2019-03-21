@@ -6,17 +6,22 @@ import { makeHeaderTemplate, makeProfile } from '../src/load-header.js';
 
 test('user profile template', function(assert) {
     const expected = `
-        <div>
-            <span id="high-score">HI-SCORE:900</span>
-            <img src="./assets/auth.jpeg" id="user-image">
-            <span id="user-name">Banana Man</span>
-            <button id="sign-out">Sign Out</button>
-        </div>
+    <div id="profile-box">
+    <img src="./assets/auth.jpeg" id="user-image">
+    
+    <div id="user-info">
+    <span id="user-name">Banana Man</span>
+    <div id="score-sign-out">
+    <span id="high-score">HI-SCORE:2000</span>
+    </div>
+    <button id="sign-out">Sign Out</button>
+    </div>
+    </div>
     `;
-    const userHighScore = 900;
+    const userHighScore = 2000;
     const user = {
         displayName: 'Banana Man',
-        photoURL: './assets/auth.jpeg'
+        photoURL: './assets/auth.jpeg',
     };
 
     const result = makeProfile(user, userHighScore);
@@ -26,10 +31,17 @@ test('user profile template', function(assert) {
 
 test('make header template', function(assert) {
     const expected = `
-        <header>
-            <img src="assets/party-blob.gif" alt="party blob" id="party-blob">
-            <h1>Trivia Game</h1>
-        </header>
+    <header>
+    <img src="assets/party-blob.gif" alt="party blob" id="party-blob">
+    <div id="center-header">
+        <h1>Trivia Game</h1>
+        <div id="nav-container">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="trivia.html" class="nav-link">Play</a>
+            <a href="scoreboard.html" class="nav-link">High Scores</a>
+        </div>
+    </div>
+    </header>
     `;
     const result = makeHeaderTemplate();
 

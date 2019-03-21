@@ -59,6 +59,12 @@ header div {
     margin-right: 5px;
 }
 
+#high-score {
+    margin-bottom: 5px;
+    margin-top: 5px;
+
+}
+
 #play-game {
     display: flex;
     justify-content: space-around;
