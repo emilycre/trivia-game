@@ -27,7 +27,7 @@ export function makeProfile(user, userHighScore) {
     <div id=user-info>
     <span id="user-name">${user.displayName}</span>
     <div id="score-sign-out">
-    <span id="high-score">HI-SCORE:${highScore}</span>
+    <span id="high-score">High-Score:  ${highScore}</span>
     </div>
     <button id="sign-out">Sign Out</button>
     </div>

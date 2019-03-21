@@ -31,6 +31,7 @@ fetch(urlRandom)
         console.log(question.answer);
         
         submitButton.addEventListener('click', () => {
+            submitButton.disabled = true;
             resultBox.classList.remove('hidden');
             resultBox.classList.remove('correct');
             resultBox.classList.remove('incorrect');
@@ -45,7 +46,7 @@ fetch(urlRandom)
             setTimeout(() => {
                 resultBox.classList.add('hidden');
                 resultBox.classList.remove('fade');
-            }, 10000);
+            }, 4900);
             
             if(failureNumber >= 3) {
                 auth.onAuthStateChanged(user => {
@@ -80,8 +81,9 @@ fetch(urlRandom)
             setTimeout(() => {
                 question = populateQuestion(randomQuestions, currentQuestionNumber);
                 console.log(question.answer);
+                submitButton.disabled = false;
+            }, 5200);
 
-            }, 10200);
         });
     });
     

@@ -17,8 +17,21 @@ body {
     border: 4px solid black;
     border-radius: 5px;
     padding: 10px;
-    width: 70vh;
+    width: 60vw;
     margin-top: 8vh;
+    font-family: 'Raleway', sans-serif;
+}
+
+legend {
+    border: solid #b98fc8 1px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+fieldset {
+    border: solid #b98fc8 2px;
+    border-radius: 5px;
+    padding: 10px;  
 }
 
 #score-display {
@@ -39,18 +52,16 @@ input {
     align-self: center;
     text-align: center;
     background-color: white;
-    border: 3px solid black;
-    border-radius: 5px;
 }
 .fade {
-    -webkit-animation: fadeinout 10s normal;
-    animation: fadeinout 10s normal;
+    -webkit-animation: fadeinout 5s normal;
+    animation: fadeinout 5s normal;
 }
 
-.question-fade {
-    -webkit-animation: fadeIn 10s normal;
-    animation: fadeIn 10s normal;
-}
+/* .question-fade {
+    -webkit-animation: fadeIn 5s normal;
+    animation: fadeIn 5s normal;
+} */
 
 @-webkit-keyframes fadeinout {
 0%,100% { opacity: 0; }
