@@ -15,7 +15,7 @@ const resultUserAnswer = document.getElementById('result-user-answer');
 const resultCondition = document.getElementById('result-condition');
 const resultExpectedAnswer = document.getElementById('result-expected-answer');
 
-const urlRandom = 'https://jservice.io/api/random?count=100';
+const urlRandom = 'http://jservice.io/api/random?count=100';
 
 let currentQuestionNumber = 0;
 currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
@@ -72,7 +72,7 @@ fetch(urlRandom)
                                 });  
                         }
                     });
-                    // window.location = './scoreboard.html';
+                    window.location = './scoreboard.html';
                 });
                 
             }
