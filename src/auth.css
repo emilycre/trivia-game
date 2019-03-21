@@ -36,7 +36,11 @@ header {
     border-radius: 5px;
 }
 
-#party-blob-container{
-    width: 110vw;
+#party-blob-containers {
+    display: flex;
+    width: 100vw;
     overflow: visible;
+    justify-content: center;
+    position: relative;
+    top: 15vh;
 }

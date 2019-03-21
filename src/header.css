@@ -105,3 +105,51 @@ header a:hover {
     background: black;
     color: white;
 }
+
+.drop-down-content {
+    list-style-type: none;
+    padding: 5px 20px;
+    display: none;
+    text-align: center;
+    background: #fbf1837c;
+    border: black solid 3px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+
+#play-button {
+    display: flex;
+    flex-flow: column;
+    z-index: 3;
+    margin: 0px;
+}
+
+#trivia-button {
+    display: flex;
+    visibility: visible;
+    z-index: 2;
+}
+
+#play-button:hover .drop-down-content {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    margin-top: 10px;
+
+}
+
+.drop-down-content li{
+    padding: 10px;
+    overflow: visible;
+}
+
+.drop-down-content{
+    position: relative;
+    top: 37px;
+}
+
+.drop-down-content #trivia-button {
+    visibility: visible;
+    position: relative;
+    bottom: 100px;
+}

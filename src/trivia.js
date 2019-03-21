@@ -76,16 +76,19 @@ fetch(urlRandom, {
                                 });  
                         }
                     });
-                    window.location = './scoreboard.html';
                 });
                 
             }
             
             currentQuestionNumber++;
             setTimeout(() => {
-                question = populateQuestion(randomQuestions, currentQuestionNumber);
-                console.log(question.answer);
-                submitButton.disabled = false;
+                if(failureNumber < 3) {
+                    question = populateQuestion(randomQuestions, currentQuestionNumber);
+                    console.log(question.answer);
+                    submitButton.disabled = false;
+                } else {
+                    window.location = './scoreboard.html';
+                }
             }, 5200);
 
         });
@@ -116,13 +119,13 @@ function adjustAnswer() {
 
 function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question){
     if(adjustedAnswer === ''){
-        resultCondition.textContent = 'not even an answer, try again!';
+        resultCondition.textContent = 'not even an answer! What a loser!';
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
     }
     else if(adjustedAnswer.length < 0.8 * adjustedCorrectAnswer.length) {
-        resultCondition.textContent = 'incorrect!';
+        resultCondition.textContent = 'massively embarrasing!';
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
@@ -134,7 +137,7 @@ function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question){
         resultBox.classList.add('correct');
     }
     else {
-        resultCondition.textContent = 'incorrect!';
+        resultCondition.textContent = 'incorrect! This reflects so deeply on your intelligence.';
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
