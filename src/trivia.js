@@ -69,7 +69,7 @@ fetch(urlRandom, {
                 resultBox.classList.remove('fade');
             }, 4900);
             
-            if(failureNumber >= 3) {
+            if(failureNumber >= 3 || currentQuestionNumber > 24) {
                 auth.onAuthStateChanged(user => {
                     userRef.child(user.uid)
                         .update({
@@ -99,7 +99,7 @@ fetch(urlRandom, {
             
             currentQuestionNumber++;
             setTimeout(() => {
-                if(failureNumber < 3) {
+                if(failureNumber < 3 && currentQuestionNumber < 25) {
                     question = populateQuestion(randomQuestions, currentQuestionNumber);
                     console.log(hash);
                     console.log(question.answer);
