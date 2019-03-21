@@ -56,7 +56,6 @@ fetch(urlRandom, {
             resultBox.classList.remove('hidden');
             resultBox.classList.remove('correct');
             resultBox.classList.remove('incorrect');
-            // resultBox.classList.add('visible');
             resultBox.classList.add('fade');
 
             const adjustedAnswer = adjustAnswer();
@@ -101,8 +100,6 @@ fetch(urlRandom, {
             setTimeout(() => {
                 if(failureNumber < 3 && currentQuestionNumber < 25) {
                     question = populateQuestion(randomQuestions, currentQuestionNumber);
-                    console.log(hash);
-                    console.log(question.answer);
                     submitButton.disabled = false;
                 } else {
                     window.location = './scoreboard.html';
