@@ -104,37 +104,37 @@ function populateQuestion(randomQuestions, currentQuestionNumber) {
 function adjustCorrectAnswer(question) {
     let adjustedCorrectAnswer = question.answer.toUpperCase();
     adjustedCorrectAnswer = removeCharacters(adjustedCorrectAnswer);
-    resultExpectedAnswer.textContent = adjustedCorrectAnswer;
+    resultExpectedAnswer.textContent = question.answer;
     return adjustedCorrectAnswer;
 }
 function adjustAnswer() {
     let adjustedAnswer = userInput.value.toUpperCase();
     adjustedAnswer = removeCharacters(adjustedAnswer);
-    resultUserAnswer.textContent = adjustedAnswer;
+    resultUserAnswer.textContent = userInput.value;
     return adjustedAnswer;
 }
 
 function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question){
     if(adjustedAnswer === ''){
-        resultCondition.textContent = 'NOT AN ANSWER, TRY ACTUALLY ANSWERING THE QUESTION...';
+        resultCondition.textContent = 'not even an answer, try again!';
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
     }
     else if(adjustedAnswer.length < 0.8 * adjustedCorrectAnswer.length) {
-        resultCondition.textContent = 'INCORRECT';
+        resultCondition.textContent = 'incorrect!';
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
     }
     else if(adjustedCorrectAnswer.includes(adjustedAnswer)){
-        resultCondition.textContent = 'CORRECT';
+        resultCondition.textContent = 'correct!';
         score += question.score;
         scoreTotal.textContent = score;
         resultBox.classList.add('correct');
     }
     else {
-        resultCondition.textContent = 'INCORRECT';
+        resultCondition.textContent = 'incorrect!';
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
