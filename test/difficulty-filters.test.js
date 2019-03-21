@@ -1,25 +1,10 @@
-import fetchedQuestions from '../data/fake-data.js';
-import { easyQuestions, mediumQuestions } from '../data/difficulty-filtered-expected.js';
+import fetchedQuestions, { hardFetchedQuestions } from '../data/fake-data.js';
+import { easyQuestions, mediumQuestions, hardQuestions } from '../data/difficulty-filtered-expected.js';
+import { filterForEasy, filterForMedium, filterForHard } from '../src/filter-by-difficulty.js';
 
 const test = QUnit.test;
 
 QUnit.module('difficuly filters');
-
-function filterForEasy(allQuestions) {
-    return allQuestions.filter(question => {
-        if(question.value < 400 && question.value) {
-            return question;
-        }
-    });
-}
-
-function filterForMedium(allQuestions) {
-    return allQuestions.filter(question => {
-        if(question.value < 800 && question.value > 300) {
-            return question;
-        }
-    });
-}
 
 test('filter for easy questions', assert => {
     const expected = easyQuestions;
@@ -37,3 +22,10 @@ test('filter for medium questions', assert => {
     assert.deepEqual(result, expected);
 });
 
+test('filter for difficult questions', assert => {
+    const expected = hardQuestions;
+
+    const result = filterForHard(hardFetchedQuestions);
+
+    assert.deepEqual(result, expected);
+});

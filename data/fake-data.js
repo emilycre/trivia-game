@@ -477,3 +477,82 @@ const fetchedQuestions = [
 ];
 
 export default fetchedQuestions;
+
+export const hardFetchedQuestions = [
+    {
+        "id": 28411,
+        "answer": "Richard- Thomas",
+        "question": "(2 of 3) How tall are you?",
+        "value": 500,
+        "airdate": "1999-06-18T12:00:00.000Z",
+        "created_at": "2014-02-11T23:02:44.422Z",
+        "updated_at": "2014-02-11T23:02:44.422Z",
+        "category_id": 749,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 749,
+            "title": "actors & actresses",
+            "created_at": "2014-02-11T22:50:06.107Z",
+            "updated_at": "2014-02-11T22:50:06.107Z",
+            "clues_count": 60
+        }
+    },
+    {
+        "id": 28414,
+        "answer": "<i> blah",
+        "question": "Unit equal to 33,000 foot-pounds per minute",
+        "value": 800,
+        "airdate": "1999-06-18T12:00:00.000Z",
+        "created_at": "2014-02-11T23:02:44.474Z",
+        "updated_at": "2014-02-11T23:02:44.474Z",
+        "category_id": 3188,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 3188,
+            "title": "\"horse\" sense",
+            "created_at": "2014-02-11T23:02:43.946Z",
+            "updated_at": "2014-02-11T23:02:43.946Z",
+            "clues_count": 5
+        }
+    },
+    {
+        "id": 28433,
+        "answer": "Oxford",
+        "question": "\"O ye spires of\" this university town!...\"your presence overpowers the soberness of reason\"",
+        "value": 900,
+        "airdate": "1999-06-17T12:00:00.000Z",
+        "created_at": "2014-02-11T23:02:45.318Z",
+        "updated_at": "2014-02-11T23:02:45.318Z",
+        "category_id": 3189,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 3189,
+            "title": "for what its wordsworth",
+            "created_at": "2014-02-11T23:02:44.858Z",
+            "updated_at": "2014-02-11T23:02:44.858Z",
+            "clues_count": 5
+        }
+    },
+    {
+        "id": 28434,
+        "answer": "Mushrooms",
+        "question": "You can add a delightfully woodsy flavor to your entrees with porcini, a type of these",
+        "value": 400,
+        "airdate": "1999-06-17T12:00:00.000Z",
+        "created_at": "2014-02-11T23:02:45.335Z",
+        "updated_at": "2014-02-11T23:02:45.335Z",
+        "category_id": 253,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 253,
+            "title": "food & drink",
+            "created_at": "2014-02-11T22:48:02.669Z",
+            "updated_at": "2014-02-11T22:48:02.669Z",
+            "clues_count": 190
+        }
+    }
+];

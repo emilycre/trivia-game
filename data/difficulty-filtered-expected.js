@@ -421,3 +421,44 @@ export const mediumQuestions = [
         }
     }
 ];
+
+export const hardQuestions = [
+    {
+        "id": 28414,
+        "answer": "<i> blah",
+        "question": "Unit equal to 33,000 foot-pounds per minute",
+        "value": 800,
+        "airdate": "1999-06-18T12:00:00.000Z",
+        "created_at": "2014-02-11T23:02:44.474Z",
+        "updated_at": "2014-02-11T23:02:44.474Z",
+        "category_id": 3188,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 3188,
+            "title": "\"horse\" sense",
+            "created_at": "2014-02-11T23:02:43.946Z",
+            "updated_at": "2014-02-11T23:02:43.946Z",
+            "clues_count": 5
+        }
+    },
+    {
+        "id": 28433,
+        "answer": "Oxford",
+        "question": "\"O ye spires of\" this university town!...\"your presence overpowers the soberness of reason\"",
+        "value": 900,
+        "airdate": "1999-06-17T12:00:00.000Z",
+        "created_at": "2014-02-11T23:02:45.318Z",
+        "updated_at": "2014-02-11T23:02:45.318Z",
+        "category_id": 3189,
+        "game_id": null,
+        "invalid_count": null,
+        "category": {
+            "id": 3189,
+            "title": "for what its wordsworth",
+            "created_at": "2014-02-11T23:02:44.858Z",
+            "updated_at": "2014-02-11T23:02:44.858Z",
+            "clues_count": 5
+        }
+    }
+];
