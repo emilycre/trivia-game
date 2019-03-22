@@ -143,7 +143,6 @@ function adjustAnswer() {
     
 function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question, insults, unimpressedWins){
     let random = Math.random();
-    console.log(random);
         
     if(adjustedAnswer === ''){
         resultUserAnswer.textContent = 'NOTHING???';

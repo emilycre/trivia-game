@@ -12,7 +12,7 @@ export function filterQuestions(fetchedQuestions) {
         return question.value;
     });
     const filterByAnswer = filterByValue.filter(question => {
-        return (!question.answer.includes('-') && !question.answer.includes('(') && !question.answer.includes('%') && !question.answer.includes('<') && !question.answer.includes('&') && !question.answer.includes('/') && !question.answer.includes('"') && !question.answer.includes('\''));
+        return (!question.answer.includes('[') && !question.answer.includes('-') && !question.answer.includes('(') && !question.answer.includes('%') && !question.answer.includes('<') && !question.answer.includes('&') && !question.answer.includes('/') && !question.answer.includes('"') && !question.answer.includes('\''));
     });
 
 
