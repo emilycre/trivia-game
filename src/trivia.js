@@ -13,6 +13,7 @@ const valueDisplay = document.getElementById('value');
 const categoryDisplay = document.getElementById('category');
 const answerDisplay = document.getElementById('answer-display');
 const scoreTotal = document.getElementById('score-total');
+const timeLeft = document.getElementById('timeLeft');
 const resultBox = document.getElementById('result-section');
 const resultUserAnswer = document.getElementById('result-user-answer');
 const resultCondition = document.getElementById('result-condition');
@@ -27,6 +28,7 @@ let failureNumber = 0;
 loadHeader();
 window.addEventListener('hashchange', () => { window.location.reload(); });
 
+let n = 10;
 const hash = window.location.hash.slice(1);
 console.log(hash);
     
@@ -51,6 +53,9 @@ fetch(urlRandom, {
         let question = populateQuestion(randomQuestions, currentQuestionNumber);
         console.log(question.answer);
         
+        const nReset = true;
+        questionTimer(nReset);
+
         submitButton.addEventListener('click', () => {
             submitButton.disabled = true;
             resultBox.classList.remove('hidden');
@@ -60,7 +65,7 @@ fetch(urlRandom, {
             
             const adjustedAnswer = adjustAnswer();
             const adjustedCorrectAnswer = adjustCorrectAnswer(question);
-            evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question,insults, unimpressedWins);
+            evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question, insults, unimpressedWins);
             userInput.value = '';
             
             setTimeout(() => {
@@ -101,6 +106,8 @@ fetch(urlRandom, {
                 if(failureNumber < 3 && currentQuestionNumber < 25) {
                     question = populateQuestion(randomQuestions, currentQuestionNumber);
                     submitButton.disabled = false;
+                    const nReset = true;
+                    questionTimer(nReset);
                     console.log(question.answer);
                 } else {
                     window.location = './scoreboard.html';
@@ -109,7 +116,7 @@ fetch(urlRandom, {
             
         });
     });
-
+    
     
 function populateQuestion(randomQuestions, currentQuestionNumber) {
     currentQuestionNumberDisplay.textContent = currentQuestionNumber + 1;
@@ -133,11 +140,11 @@ function adjustAnswer() {
     resultUserAnswer.textContent = userInput.value;
     return adjustedAnswer;
 }
-
+    
 function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question, insults, unimpressedWins){
     let random = Math.random();
     console.log(random);
-
+        
     if(adjustedAnswer === ''){
         resultUserAnswer.textContent = 'NOTHING???';
         resultCondition.textContent = 'Wow. You didn\'t even try.';
@@ -163,4 +170,20 @@ function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question, insults
         failureNumber++;
         resultBox.classList.add('incorrect');
     }
+}
+    
+function questionTimer(nReset) {
+    if(nReset) {
+        n = 15;
+    } else {
+        n--;
+    }
+
+    if(n > 0) {
+        setTimeout(questionTimer, 1000);
+    } else if(n === 0) {
+        submitButton.click();
+        timeLeft.textContent = 0;
+    }
+    if(n > 0) timeLeft.textContent = n;
 }
