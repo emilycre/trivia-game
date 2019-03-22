@@ -5,11 +5,11 @@ const userScoreDisplay = document.getElementById('user-score-display');
 
 export function makeHighScoreRow(scoreEntry, entryRank) {
     const html = /*html*/ `
-    <tr>
-        <td>${entryRank}.</td>
-        <td>${scoreEntry.name}</td>
-        <td>${scoreEntry.highScore}</td>
-    </tr>
+        <tr>
+            <td>${entryRank}.</td>
+            <td>${scoreEntry.name}</td>
+            <td>${scoreEntry.highScore}</td>
+        </tr>
     `;
     const template = document.createElement('template');
     template.innerHTML = html;

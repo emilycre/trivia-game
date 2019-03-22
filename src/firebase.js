@@ -1,4 +1,3 @@
-
 const config = {
     apiKey: 'AIzaSyCaq0Tb-QL42mS3dTLWEpoZutzTQnOGitg',
     authDomain: 'trivia-game-af552.firebaseapp.com',

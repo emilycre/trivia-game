@@ -6,17 +6,17 @@ import { makeHeaderTemplate, makeProfile } from '../src/load-header.js';
 
 test('user profile template', function(assert) {
     const expected = `
-    <div id="profile-box">
-    <img src="./assets/auth.jpeg" id="user-image">
-    
-    <div id="user-info">
-    <span id="user-name">Banana Man</span>
-    <div id="score-sign-out">
-    <span id="high-score">High Score: 2000</span>
-    </div>
-    <button id="sign-out">Sign Out</button>
-    </div>
-    </div>
+        <div id="profile-box">
+            <img src="./assets/auth.jpeg" id="user-image">
+            
+            <div id="user-info">
+                <span id="user-name">Banana Man</span>
+                <div id="score-sign-out">
+                    <span id="high-score">High Score: 2000</span>
+                </div>
+                <button id="sign-out">Sign Out</button>
+            </div>
+        </div>
     `;
     const userHighScore = 2000;
     const user = {

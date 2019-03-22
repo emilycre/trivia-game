@@ -6,13 +6,11 @@ QUnit.module('makes table row');
 import { makeHighScoreRow } from '../src/scoreboard-components.js';
 
 test('dynamically creates table row from array entry', assert => {
-    //ARRANGE
     const scoreEntry = {
         highScore: 1000000, 
-        name: "Bob Bobson"
+        name: 'Bob Bobson'
     };
-    const entryRank  = 1;
-    //ACT
+    const entryRank = 1;
     const result = makeHighScoreRow(scoreEntry, entryRank) ;
     const expected = /*html*/ `
     <tr>
@@ -21,6 +19,5 @@ test('dynamically creates table row from array entry', assert => {
         <td>1000000</td>
     </tr>
     `;
-    //ASSERT
     assert.htmlEqual(result, expected);
 });

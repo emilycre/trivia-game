@@ -29,7 +29,6 @@ loadHeader();
 window.addEventListener('hashchange', () => { window.location.reload(); });
 let n = 10;
 const hash = window.location.hash.slice(1);
-console.log(hash);
     
 fetch(urlRandom, {
     headers: {
@@ -50,6 +49,7 @@ fetch(urlRandom, {
             window.location.reload();
         }
         let question = populateQuestion(randomQuestions, currentQuestionNumber);
+        // eslint-disable-next-line no-console
         console.log(question.answer);
         
         const nReset = true;
