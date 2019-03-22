@@ -5,7 +5,7 @@ export function makeHeaderTemplate() {
         <header>
             <img src="assets/party-blob.gif" alt="party blob" id="party-blob">
             <div id="center-header">
-                <h1>Tactless Trivia</h1>
+                <h1><img id="headline" src="./assets/trivia-title.png"></h1>
                 <div id="nav-container">
                     <a href="index.html" class="nav-link">Home</a>
                     <div id="play-button">

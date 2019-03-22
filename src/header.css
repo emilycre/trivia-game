@@ -20,6 +20,10 @@ header img {
     margin-left: 5px;
 }
 
+#headline {
+    width: 30vw;
+}
+
 #center-header{
     display: flex;
     flex-direction: column;
