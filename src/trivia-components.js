@@ -17,7 +17,7 @@ export function filterQuestions(fetchedQuestions) {
 
 
     const filterByQuestion = filterByAnswer.filter(question => {
-        return (!question.question.includes('seen here') && !question.question.includes('shown here') && !question.question.includes('pictured here') && !question.question.includes('displayed above'));
+        return (!question.question.includes('seen here') && !question.question.includes('shown here') && !question.question.includes('pictured here') && !question.question.includes('displayed above') && !question.question.includes('['));
     });
     return filterByQuestion;
 }
