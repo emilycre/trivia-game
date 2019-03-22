@@ -69,6 +69,11 @@ export default function loadHeader(options){
                 
                 const userDom = makeProfile(user, userHighScore);
                 const signOut = userDom.querySelector('button');
+                const partyBlob = document.getElementById('party-blob');
+                partyBlob.addEventListener('click', () => {
+                    window.location = './about.html';
+                });
+
                 signOut.addEventListener('click', () => {
                     auth.signOut();
                     window.location = './auth.html';

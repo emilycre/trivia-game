@@ -27,7 +27,6 @@ let score = 0;
 let failureNumber = 0;
 loadHeader();
 window.addEventListener('hashchange', () => { window.location.reload(); });
-
 let n = 10;
 const hash = window.location.hash.slice(1);
 console.log(hash);
