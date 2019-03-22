@@ -152,7 +152,7 @@ function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question, insults
         resultBox.classList.add('incorrect');
     }
     else if(adjustedAnswer.length < 0.8 * adjustedCorrectAnswer.length) {
-        resultCondition.textContent = ' Nope.' + insults[Math.floor(random * insults.length)];
+        resultCondition.textContent = ' That\'s wrong.' + insults[Math.floor(random * insults.length)];
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
@@ -164,7 +164,7 @@ function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question, insults
         resultBox.classList.add('correct');
     }
     else {
-        resultCondition.textContent = ' Sorry.' + insults[Math.floor(random * insults.length)];
+        resultCondition.textContent = ' That\'s wrong.' + insults[Math.floor(random * insults.length)];
         scoreTotal.textContent = score;
         failureNumber++;
         resultBox.classList.add('incorrect');
