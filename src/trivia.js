@@ -52,8 +52,8 @@ fetch(urlRandom, {
         // eslint-disable-next-line no-console
         console.log(question.answer);
         
-        const nReset = true;
-        questionTimer(nReset);
+        //const nReset = true;
+        //questionTimer(nReset);
 
         submitButton.addEventListener('click', () => {
             submitButton.disabled = true;
@@ -172,7 +172,7 @@ function evaluateAnswer(adjustedAnswer, adjustedCorrectAnswer, question, insults
     
 function questionTimer(nReset) {
     if(nReset) {
-        n = 15;
+        n = 30;
     } else {
         n--;
     }
