@@ -28,7 +28,6 @@ test('user profile template', function(assert) {
 
     assert.htmlEqual(result, expected);
 });
-
 test('make header template', function(assert) {
     const expected = `
     <header>
